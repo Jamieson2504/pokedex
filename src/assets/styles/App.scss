@@ -1,0 +1,123 @@
+body {
+  @apply bg-black text-black text-base text-center;
+  @apply py-[50px] px-[30px] lg:p-[100px] font-sans;
+}
+
+h1 {
+  @apply text-white font-title mb-[100px];
+  @apply text-[100px] leading-[1.2];
+}
+
+.pokeball {
+  @apply w-[100px] mx-auto mb-[0px];
+  svg {
+    @apply w-full h-auto;
+  }
+}
+
+.pokemon {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3;
+  @apply xl:grid-cols-4 gap-10;
+
+  &--single {
+    @apply flex justify-center;
+  }
+  
+  &__item {
+    @apply text-black text-white rounded-xl p-5 border-[3px] aspect-[2/3] relative;
+    @apply flex flex-col items-stretch justify-start gap-5 text-left justify-stretch;
+    border-color: rgba(255,255,255,0.1);
+    &--detailed {
+      @apply block md:flex flex-row gap-10 w-full max-w-[900px] aspect-auto items-start;
+    }
+  }
+
+  
+  &__id {
+    @apply absolute top-5 right-5 opacity-50;
+  }
+
+  &__title {
+    @apply text-[22px] leading-none capitalize;
+    &--placeholder {
+      background-color: rgba(255,255,255,0.05);
+      @apply h-[22px] w-[150px];
+    }
+  }
+
+  &__image {
+    background-color: rgba(255,255,255,0.05);
+    @apply w-full aspect-video flex justify-center items-center;
+    @apply rounded-md;
+    img {
+      @apply min-h-[96px] w-auto;
+    }
+  }
+
+  &__left {
+    @apply grid grid-cols-2 gap-5 md:w-1/2 py-5 md:py-0;
+    .pokemon__image {
+      @apply aspect-square;
+    }
+    a {
+      @apply col-span-2;
+    }
+  }
+
+  &__right {
+    @apply md:w-1/2;
+    .pokemon__title {
+      @apply mb-5;
+    }
+    li, p {
+      @apply capitalize;
+    }
+    li:last-child {
+      @apply border-none;
+    }
+    [data-name="hp"] span {
+      @apply uppercase;
+    }
+  }
+
+  &__desc {
+    p {
+      @apply py-2;
+      &:not(:last-child) {
+        @apply border-b border-solid ;
+        border-color: rgba(255,255,255,0.1)
+      }
+    }
+    li {
+      @apply border-b border-solid text-base py-2 capitalize;
+      border-color: rgba(255,255,255,0.1)
+    }
+  }
+
+}
+
+.search {
+  @apply flex gap-[5px];
+  input {
+    @apply w-[500px] rounded-tl-[15px] rounded-bl-[15px];
+    @apply py-[10px] px-[15px] m-0 outline-none;
+  }
+  button {
+    @apply bg-red text-black h-auto py-[10px] px-[25px];
+    @apply rounded-tr-[15px] rounded-r-[15px] m-0;
+  }
+  [disabled] {
+    @apply pointer-events-none opacity-60;
+  }
+}
+
+.pagination {
+  @apply pt-[40px] flex justify-center gap-5;
+  button {
+    @apply text-white underline bg-none p-0 text-base;
+  }
+}
+
+.reset {
+  @apply text-white underline inline-block mb-10 text-base;
+}
