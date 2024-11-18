@@ -12,7 +12,9 @@ const Pokemon: React.FC<PokemonProps> = ({ url }) => {
     if(soundFile && isPlaying == false) {
       e.preventDefault();
       setIsPlaying(true);
-      var sound = new Audio(soundFile);
+      var sound = new Audio();
+      sound.autoplay = true;
+      sound.src = soundFile;
       sound.play();
       setTimeout(() => { setIsPlaying(false); }, 2000)
     }

@@ -13,7 +13,9 @@ const playSound = (e: React.MouseEvent<HTMLElement>, soundFile: string | undefin
     if(soundFile && isPlaying == false) {
       e.preventDefault();
       setIsPlaying(true);
-      var sound = new Audio(soundFile);
+      var sound = new Audio();
+      sound.autoplay = true;
+      sound.src = soundFile;
       sound.play();
       setTimeout(() => { setIsPlaying(false); }, 2000)
     }

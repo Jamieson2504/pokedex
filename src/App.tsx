@@ -56,6 +56,8 @@ const App: React.FC = () => {
   const reset = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     setPokedexSingle(null);
+    setError(null);
+    setSearchTerm('');
     setFetchUrl('https://pokeapi.co/api/v2/pokemon?limit=12');
   }
 
